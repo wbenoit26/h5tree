@@ -3,7 +3,7 @@
 It also displays meta-data, such as the data shape, data type, and the values of attributes.
 
 ## Install
-Install with `pip install h5tree`, or simply copy the file `bin/h5tree` to a folder in your system `PATH`
+Install by cloning this repo, and then running `pip install .` inside the directory.
 
 ## Example output
 ```bash
