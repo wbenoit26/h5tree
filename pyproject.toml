@@ -1,0 +1,15 @@
+[tool.ruff]
+line-length = 79
+target-version = "py312"
+
+[tool.ruff.lint]
+extend-safe-fixes = ["C408"]
+mccabe = {"max-complexity" = 18}
+select = ["B", "C", "E", "F", "I", "UP", "W"]
+# ignore W605 and E203 for consistency with black
+# ignore F722 for compatibility with jaxtyping
+ignore = ["W605", "E203", "F722"]  
+
+# ignore asterisk imports and unused
+# import errors in __init__ files
+per-file-ignores =  {"**/__init__.py" = ["F401", "F403"]}

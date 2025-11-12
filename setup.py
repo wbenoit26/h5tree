@@ -15,7 +15,7 @@ VERSION = '1.0'
 LICENSE = 'MIT'
 
 REQUIRED = [
-    'h5py', 
+    'h5py',
     'termcolor',
 ]
 
