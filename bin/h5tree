@@ -1,4 +1,4 @@
-#!/opt/miniconda3/bin/python
+#!/home/william.benoit/miniconda3/bin/python
 
 # TODO: * add search pattern / anti-pattern on datasets/groups
 #       * nicer verbose output for scalar, h5refernce
@@ -7,6 +7,7 @@ import h5py
 import argparse
 from termcolor import colored
 from collections import defaultdict
+from pathlib import Path
 
 # globals
 total_groups = 0
@@ -38,8 +39,10 @@ parser.add_argument('-p', '--pattern', nargs='?', type=str, help='pattern', defa
 args = parser.parse_args()
 
 # parse the parsed input
-filepath = args.path
-locater = '.h5'
+filepath = Path(args.path)
+locater = filepath.suffix
+if str(locater) not in [".h5", ".hdf5"]:
+    raise ValueError(f"{filepath.name} is not a compatible file type")
 sep_index = args.path.find(locater) + len(locater)
 
 filepath = args.path[:sep_index]
